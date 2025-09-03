@@ -1,0 +1,42 @@
+.form {
+  max-width: 400px;
+  max-height: 670px;
+  padding: 16px 40px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.input {
+  height: 48px;
+  width: 320px;
+}
+
+.idRemember {
+  color: #999999 !important;
+}
+
+.separator {
+  color: #ebebeb;
+}
+
+.link {
+  color: #555555;
+}
+
+.loginButton {
+  height: 51px !important;
+  width: 320px !important;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}

@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 5px;
+  position: absolute;
+  bottom: 20px;
+}
+
+.text {
+  color: #959aa0;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.separator {
+  color: #959aa0;
+  font-size: 14px;
+}
