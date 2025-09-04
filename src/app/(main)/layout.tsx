@@ -1,45 +1,43 @@
 "use client";
 
-import React, { useState, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import styles from "./layout.module.css";
 import {
   DesktopOutlined,
-  FileOutlined,
   CreditCardOutlined,
   CopyOutlined,
   SmileOutlined,
-  TeamOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Layout, Menu } from "antd";
-// import SidebarFooter from "@/features/main/common/SidebarFooter";
 import SidebarLogo from "@/features/main/common/SidebarLogo";
 import UserInfo from "@/features/main/common/UserInfo";
+import { useRouter } from "next/navigation";
+import ContentFooter from "@/features/main/common/ContentFooter";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
 
 function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[]
+  label: React.ReactNode, //실제 사이드바에 보이는 텍스트
+  key: React.Key, //메뉴 아이템 고유값
+  icon?: React.ReactNode, //아이콘 (선택)
+  children?: MenuItem[] // 서브 메뉴 (선택)
 ): MenuItem {
   return {
+    label,
     key,
     icon,
     children,
-    label,
   } as MenuItem;
 }
 
 const items: MenuItem[] = [
-  getItem("대시보드", "1", <DesktopOutlined />),
-  getItem("포인트 충전", "2", <CreditCardOutlined />),
-  getItem("마이 페이지", "3", <SmileOutlined />),
-  getItem("주문 내역", "4", <CopyOutlined />),
+  getItem("대시보드", "/dashboard", <DesktopOutlined />),
+  getItem("포인트 충전", "/points", <CreditCardOutlined />),
+  getItem("마이 페이지", "/profile", <SmileOutlined />),
+  getItem("주문 내역", "/orders", <CopyOutlined />),
   // getItem("플레이스", "sub1", <UserOutlined />, [getItem("Tom", "3")]),
   // getItem("쇼핑", "sub2", <TeamOutlined />, [
   //   getItem("Team 1", "6"),
@@ -48,18 +46,16 @@ const items: MenuItem[] = [
   // getItem("플레이스", "sub3", <UserOutlined />, [getItem("Tom", "3")]),
 ];
 export default function MainLayout({ children }: { children: ReactNode }) {
-  const [collapsed, setCollapsed] = useState(false);
+  const router = useRouter();
+
+  const handleMenuClick: MenuProps["onClick"] = (e) => {
+    router.push(e.key);
+  };
 
   return (
     <Layout className={styles.layout}>
       {/* 사이드바 */}
-      <Sider
-        collapsible
-        collapsed={collapsed}
-        onCollapse={(value) => setCollapsed(value)}
-        width={250}
-        className={styles.sider}
-      >
+      <Sider width={250} className={styles.sider}>
         <SidebarLogo />
         <UserInfo />
         <Menu
@@ -67,6 +63,7 @@ export default function MainLayout({ children }: { children: ReactNode }) {
           defaultSelectedKeys={["1"]}
           mode="inline"
           items={items}
+          onClick={handleMenuClick}
         />
         {/* <SidebarFooter /> */}
       </Sider>
@@ -74,16 +71,12 @@ export default function MainLayout({ children }: { children: ReactNode }) {
       {/* 오른쪽 컨텐츠 */}
       <Layout className={styles.contentLayout}>
         <Header className={styles.contentHeader}>
-          <span>대시보드</span>
+          <span className={styles.headerTitle}>대시보드</span>
           <span>드롭다운</span>
         </Header>
-
         {/* 동적으로 바뀌는 컨텐츠 내용 */}
         <Content className={styles.content}>{children}</Content>
-
-        <Footer className={styles.footer}>
-          해도기획.com ©{new Date().getFullYear()} All rights reserved.
-        </Footer>
+        <ContentFooter />
       </Layout>
     </Layout>
   );

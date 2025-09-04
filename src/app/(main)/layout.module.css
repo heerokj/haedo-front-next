@@ -18,6 +18,10 @@
   align-items: center;
 }
 
+.headerTitle {
+  color: #626f86;
+}
+
 .content {
   margin: 20px 0;
 }
