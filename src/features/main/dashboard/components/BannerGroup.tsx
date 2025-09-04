@@ -1,7 +1,12 @@
 import React from "react";
 import BannerCard from "./BannerCard";
 
-const ITEM = ["1", "2", "3", "4"];
+const ITEM = [
+  "/image/banner.png",
+  "/image/banner.png",
+  "/image/banner.png",
+  "/image/banner.png",
+];
 
 export default function BannerGroup() {
   return (

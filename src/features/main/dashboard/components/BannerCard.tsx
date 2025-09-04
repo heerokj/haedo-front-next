@@ -10,15 +10,9 @@ export default function BannerCard({ img, key }: Prop) {
   return (
     <div
       key={key}
-      style={{
-        minHeight: 78,
-        minWidth: 380,
-        background: "#FFFFFF",
-        borderRadius: "6px",
-      }}
+      className="min-h-[78px] min-w-[380px] bg-white rounded-md relative overflow-hidden"
     >
-      {/* <Image src={img} alt="img" height={78} width={380} /> */}
-      광고 베너 이미지
+      <Image src={img} alt="img" fill className="object-fill" />
     </div>
   );
 }
