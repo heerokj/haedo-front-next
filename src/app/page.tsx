@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+//TODO - (루트 페이지 → /login 리다이렉트)
+
 export default function Home() {
   return (
     <div>

@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 import introImg from "../../../public/image/intro-image.jpg";
 import GlassButton from "@/features/auth/components/GlassButton";
+import AuthFooter from "@/features/auth/components/AuthFooter";
 import styles from "./layout.module.css";
 import { Flex } from "antd";
-import AuthFooter from "@/features/auth/components/AuthFooter";
 
 const ButtonTitle = ["대시보드", "캠페인 생성", "캠페인 관리", "순위 추적"];
 
