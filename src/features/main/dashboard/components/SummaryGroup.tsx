@@ -1,57 +1,33 @@
 import React from "react";
+import SummaryCard from "./SummaryCard";
 
 export default function SummaryGroup() {
   return (
     <div className="grid grid-cols-4 gap-4">
-      <div
-        style={{
-          minHeight: 78,
-          minWidth: 380,
-          background: "#FFFFFF",
-          borderRadius: "6px",
-        }}
-        className="flex justify-between items-center px-8"
-      >
-        <div>아이콘</div>
-        <div>
-          <span>customers</span>
-          <p>현재 진행중인 주문건</p>
-        </div>
-        <div>3,186</div>
-      </div>
-      <div
-        style={{
-          minHeight: 78,
-          minWidth: 380,
-          background: "#FFFFFF",
-          borderRadius: "6px",
-        }}
-      >
-        {/* <Image src={img} alt="img" height={78} width={380} /> */}
-        광고 베너 이미지
-      </div>
-      <div
-        style={{
-          minHeight: 78,
-          minWidth: 380,
-          background: "#FFFFFF",
-          borderRadius: "6px",
-        }}
-      >
-        {/* <Image src={img} alt="img" height={78} width={380} /> */}
-        광고 베너 이미지
-      </div>
-      <div
-        style={{
-          minHeight: 78,
-          minWidth: 380,
-          background: "#FFFFFF",
-          borderRadius: "6px",
-        }}
-      >
-        {/* <Image src={img} alt="img" height={78} width={380} /> */}
-        광고 베너 이미지
-      </div>
+      <SummaryCard
+        img="/image/growth-removebg-preview.png"
+        tag="customer"
+        title="현재 진행중인 주문건"
+        data={3186}
+      />
+      <SummaryCard
+        img="/image/trace-removebg-preview.png"
+        tag="stores"
+        title="현재 반려된 주문건"
+        data={3621}
+      />
+      <SummaryCard
+        img="/image/traffic-removebg-preview.png"
+        tag="traffics"
+        title="마케팅 커뮤니티"
+        data={62280000}
+      />
+      <SummaryCard
+        img="/image/review-removebg-preview.png"
+        tag="reviews"
+        title="무료 체험단 바로가기"
+        data={800000}
+      />
     </div>
   );
 }

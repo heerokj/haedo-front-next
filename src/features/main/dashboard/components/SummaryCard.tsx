@@ -1,5 +1,35 @@
+import { formatNumber } from "@/shared/utils/FormatNumber";
 import React from "react";
+import Image from "next/image";
 
-export default function SummaryCard() {
-  return <div>SummaryCard</div>;
+type Props = {
+  img: string;
+  title: string;
+  tag: string;
+  data: number;
+};
+
+export default function SummaryCard({ img, title, tag, data }: Props) {
+  return (
+    <div
+      style={{
+        minHeight: 78,
+        minWidth: 380,
+        background: "#FFFFFF",
+        borderRadius: "6px",
+      }}
+      className="flex gap-4 px-8 items-center"
+    >
+      <div className="flex-[0.2]">
+        <Image src={img} width={55} height={55} alt="img" />
+      </div>
+      <div className="flex-[0.8] flex justify-between items-center gap-4">
+        <div>
+          <span className="text-[#626F86] text-[12px]">{tag}</span>
+          <p style={{ fontWeight: 600, fontSize: "15px" }}>{title}</p>
+        </div>
+        <div className="text-3xl font-bold pt-2">{formatNumber(data)}</div>
+      </div>
+    </div>
+  );
 }
