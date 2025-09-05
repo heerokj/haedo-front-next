@@ -11,15 +11,7 @@ type Props = {
 
 export default function SummaryCard({ img, title, tag, data }: Props) {
   return (
-    <div
-      style={{
-        minHeight: 78,
-        minWidth: 380,
-        background: "#FFFFFF",
-        borderRadius: "6px",
-      }}
-      className="flex gap-4 px-8 items-center"
-    >
+    <div className="min-h-[78px] w-full bg-white rounded-md flex gap-4 px-8 items-center">
       <div className="flex-[0.2]">
         <Image src={img} width={55} height={55} alt="img" />
       </div>

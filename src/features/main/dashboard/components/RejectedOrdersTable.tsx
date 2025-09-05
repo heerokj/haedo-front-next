@@ -96,7 +96,7 @@ const data: DataType[] = [
 
 export default function RejectedOrdersTable() {
   return (
-    <div className="min-h-[230px] min-w-[770px] bg-white rounded-md px-5 pt-5 pb-0 shadow-md">
+    <div className="min-h-[230px] w-full bg-white rounded-md px-5 pt-5 pb-0 shadow-md">
       <PanelTitle title="반려 주문내역" />
       <Table<DataType>
         columns={columns}

@@ -22,7 +22,7 @@ const data = [
 
 export default function NoticeList() {
   return (
-    <div className="min-h-[470px] min-w-[350px] bg-white rounded-md p-5 shadow-md">
+    <div className="min-h-[470px] w-full bg-white rounded-md p-5 shadow-md">
       <PanelTitle title="공지사항" />
       <List
         itemLayout="horizontal"
