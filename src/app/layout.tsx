@@ -1,4 +1,10 @@
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
 import "./globals.css";
+
+export const metadata = {
+  title: "해도 | haedo",
+  description: "haedo company",
+};
 
 export default function RootLayout({
   children,
@@ -8,7 +14,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main>{children}</main>
+        <ReactQueryProvider>
+          <main>{children}</main>
+        </ReactQueryProvider>
       </body>
     </html>
   );
